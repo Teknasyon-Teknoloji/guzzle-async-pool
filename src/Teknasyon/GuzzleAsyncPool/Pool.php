@@ -59,7 +59,7 @@ class Pool
      */
     public function _onCompleted($response, $index)
     {
-        ($this->onCompletedRequestCallback)($index, $this->requests[$index], $response);
+        call_user_func($this->onCompletedRequestCallback, $index, $this->requests[$index], $response);
     }
 
     /**
@@ -68,7 +68,7 @@ class Pool
      */
     public function _onFailed(\Exception $exception, $index)
     {
-        ($this->onFailedRequestCallback)($index, $this->requests[$index], $exception);
+        call_user_func($this->onFailedRequestCallback, $index, $this->requests[$index], $exception);
     }
 
     /**
